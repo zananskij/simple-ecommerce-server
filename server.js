@@ -17,6 +17,9 @@ app.post("/create-payment-intent", async (req, res) => {
     clientSecret: paymentIntent.client_secret,
   })
 })
+function calculateOrderAmount(items) {
+  return items.reduce((total, item) => total + item.price * 100 * item.quantity, 0)
+}
 
 app.listen(4242, () => console.log("Node server listening on port 4242!"))
 
