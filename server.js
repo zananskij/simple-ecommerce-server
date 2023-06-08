@@ -16,6 +16,10 @@ app.get("/", (req, res) => {
   res.send("Hello, world!")
 })
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/build/index.html"))
+})
+
 // app.post("/create-checkout-session", async (req, res) => {
 //   const { items } = req.body
 //   console.log(items) // Log the items here to check their structure
