@@ -10,6 +10,10 @@ const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
 const PORT = process.env.PORT || 4242
 
+app.get("/", (req, res) => {
+  res.send("Hello, world!")
+})
+
 // app.post("/create-checkout-session", async (req, res) => {
 //   const { items } = req.body
 //   console.log(items) // Log the items here to check their structure
