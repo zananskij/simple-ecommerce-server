@@ -4,6 +4,8 @@ const cors = require("cors")
 const app = express()
 app.use(cors())
 app.use(express.json())
+const path = require("path")
+app.use(express.static(path.join(__dirname, "build")))
 // app.use(cors({ origin: 'http://your-frontend-url' }));
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
