@@ -64,12 +64,19 @@ app.post("/create-checkout-session", async (req, res) => {
     quantity: item.quantity,
   }))
 
+  // const session = await stripe.checkout.sessions.create({
+  //   payment_method_types: ["card"],
+  //   line_items: line_items,
+  //   mode: "payment",
+  //   success_url: "https://localhost:3000/success", // Replace with your success page
+  //   cancel_url: "https://localhost:3000/cancel", // Replace with your cancel page
+  // })
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     line_items: line_items,
     mode: "payment",
-    success_url: "https://localhost:3000/success", // Replace with your success page
-    cancel_url: "https://localhost:3000/cancel", // Replace with your cancel page
+    success_url: "https://simple-ecommerce-server.herokuapp.com/success", // Replace with your success page
+    cancel_url: "https://simple-ecommerce-server.herokuapp.com/cancel", // Replace with your cancel page
   })
 
   res.json({ sessionId: session.id })
