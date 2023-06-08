@@ -8,6 +8,8 @@ app.use(express.json())
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
+const PORT = process.env.PORT || 4242
+
 // app.post("/create-checkout-session", async (req, res) => {
 //   const { items } = req.body
 //   console.log(items) // Log the items here to check their structure
@@ -67,7 +69,11 @@ app.get("/success", (req, res) => {
   res.send("Payment was successful!")
 })
 
-app.listen(4242, () => console.log("Node server listening on port 4242!"))
+// app.listen(4242, () => console.log("Node server listening on port 4242!"))
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
+})
 
 // after const stripe
 // const storeItems = new Map([
