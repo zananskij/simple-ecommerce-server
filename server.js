@@ -170,9 +170,10 @@ app.use(express.json())
 const path = require("path")
 app.use(express.static(path.join(__dirname, "build")))
 
-// Only use this line in development
 if (process.env.NODE_ENV !== "production") {
   app.use(cors({ origin: "http://localhost:3000" }))
+} else {
+  app.use(cors({ origin: "https://simple-ecommerce.herokuapp.com" }))
 }
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
