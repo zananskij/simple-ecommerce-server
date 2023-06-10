@@ -170,10 +170,29 @@ app.use(express.json())
 const path = require("path")
 app.use(express.static(path.join(__dirname, "build")))
 
+// if (process.env.NODE_ENV !== "production") {
+//   app.use(cors({ origin: "http://localhost:3000" }))
+// } else {
+//   app.use(cors({ origin: "https://simple-ecommerce.herokuapp.com" }))
+// }
 if (process.env.NODE_ENV !== "production") {
-  app.use(cors({ origin: "http://localhost:3000" }))
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      preflightContinue: false,
+      optionsSuccessStatus: 204,
+    })
+  )
 } else {
-  app.use(cors({ origin: "https://simple-ecommerce.herokuapp.com" }))
+  app.use(
+    cors({
+      origin: "https://simple-ecommerce.herokuapp.com",
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      preflightContinue: false,
+      optionsSuccessStatus: 204,
+    })
+  )
 }
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
