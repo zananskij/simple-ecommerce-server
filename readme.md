@@ -4,18 +4,18 @@
 
 This repository contains the backend code for my Simple Ecommerce project. The backend provides the server-side functionality required for managing products, processing payments, and handling checkout sessions. It is built using Node.js and Express.js, two popular frameworks for creating robust and scalable web applications. The backend integrates with the Stripe API to facilitate secure payment processing.
 
-## Deployed Link (Backend / API)
+## Deployed Link
 
-https://simple-ecommerce-server.herokuapp.com/
+https://simple-ecommerce.herokuapp.com/
 
-## Skills Utilized
+## Skills Utilized:
 
 - Node.js
 - Express.js
 - Stripe API
 - CORS
 
-## Key Features
+## Key Features:
 
 - Payment Processing: The Stripe API is used to process payments securely, ensuring a seamless checkout experience for customers.
 - Checkout Sessions: The backend handles the creation of checkout sessions, which include line items with product details and quantities.
